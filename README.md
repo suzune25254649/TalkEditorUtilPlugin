@@ -1,0 +1,2 @@
+# TalkEditorUtilPlugin
+aviutlプラグイン。aviutlから各種ソフトウェアトークソフトにアクセスし、音声ファイルを生成、タイムラインに配置までしてくれます。
