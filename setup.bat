@@ -18,10 +18,10 @@ if /i aviutl.exe neq %EXENAME% (
 
 mkdir download > NUL 2>&1
 echo TalkEditorUtilのダウンロードを開始
-if not exist .\download\TalkEditorUtil_v1.1.0.zip @bitsadmin /transfer TalkEditorUtilのダウンロード /PRIORITY FOREGROUND https://github.com/suzune25254649/TalkEditorUtil/releases/download/v1.1.0/TalkEditorUtil_v1.1.0.zip %~dp0\download\TalkEditorUtil_v1.1.0.zip
-if not exist .\download\TalkEditorUtil_v1.1.0.zip @bitsadmin /transfer TalkEditorUtilのダウンロード /PRIORITY FOREGROUND https://github.com/suzune25254649/TalkEditorUtil/releases/download/v1.1.0/TalkEditorUtil_v1.1.0.zip %~dp0\download\TalkEditorUtil_v1.1.0.zip
+if not exist .\download\TalkEditorUtil_v1.1.1.zip @bitsadmin /transfer TalkEditorUtilのダウンロード /PRIORITY FOREGROUND https://github.com/suzune25254649/TalkEditorUtil/releases/download/v1.1.1/TalkEditorUtil_v1.1.1.zip %~dp0\download\TalkEditorUtil_v1.1.1.zip
+if not exist .\download\TalkEditorUtil_v1.1.1.zip @bitsadmin /transfer TalkEditorUtilのダウンロード /PRIORITY FOREGROUND https://github.com/suzune25254649/TalkEditorUtil/releases/download/v1.1.1/TalkEditorUtil_v1.1.1.zip %~dp0\download\TalkEditorUtil_v1.1.1.zip
 
-if not exist .\download\TalkEditorUtil_v1.1.0.zip (
+if not exist .\download\TalkEditorUtil_v1.1.1.zip (
 	echo ERROR
 	echo ダウンロードに失敗しました。
 	echo 時々失敗することがあるようなので、何度かやってみてください。
@@ -29,7 +29,7 @@ if not exist .\download\TalkEditorUtil_v1.1.0.zip (
 	exit
 )
 if exist .\download\TalkEditorUtil rmdir /s /q .\download\TalkEditorUtil
-powershell -NoProfile -ExecutionPolicy Unrestricted .\tools\unzip.ps1 download\TalkEditorUtil_v1.1.0.zip download
+powershell -NoProfile -ExecutionPolicy Unrestricted .\tools\unzip.ps1 download\TalkEditorUtil_v1.1.1.zip download
 
 
 mkdir %DIRNAME%\TalkEditorUtil > NUL 2>&1

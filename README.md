@@ -187,8 +187,8 @@ aviutlフォルダの、"TalkEditorUtil/dropfiles/TalkEditorUtil.exa"をすり�
 * VOICEROID2(64bit版)
 * VOICEROID2(32bit版)
 * GynoidTalk
-* CeVIO CS7(IA, ONEのみ)
-* CeVIO AI(小春六花のみ, ただし多分IA, ONEも動くはず)
+* CeVIO CS7(IA, ONE, さとうささら, すずきつづみ, タカハシ)
+* CeVIO AI(IA, ONE, 小春六花)
 * SofTalk(ver1.93.50以降)
 * 音街ウナTalk Ex
 * VOICEROID＋ 民安ともえ EX
@@ -211,6 +211,12 @@ https://twitter.com/suzune25254649
 ただし、このツールを利用した際に発生した いかなる損失や損害が発生についても、作者は一切の責任を負いかねます。
 
 # 更新履歴
+
+## v1.02
+- さとうささら、すずきつづみ、タカハシが使えるように対応しました。
+- 一部環境で、ボイスロイド系のWav出力に失敗するバグを修正しました。
+- 特殊記法の {{記法、 }}記法がうまく動いていなかったバグを修正しました。
+- ライセンス表記が足りていなかったのを修正しました。
 
 ## v1.01
 - プロジェクトファイル名に、特定の文字が含まれている場合に誤動作する問題を修正しました。
@@ -239,3 +245,36 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+* Lua License
+-----------
+
+Lua is licensed under the terms of the MIT license reproduced below.
+This means that Lua is free software and can be used for both academic
+and commercial purposes at absolutely no cost.
+
+For details and rationale, see http://www.lua.org/license.html .
+
+===============================================================================
+
+Copyright (C) 1994-2012 Lua.org, PUC-Rio.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+===============================================================================
