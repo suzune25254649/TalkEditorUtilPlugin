@@ -184,6 +184,7 @@ Layer5にテキストオブジェクトを配置し、F7キーで出力すると
 aviutlフォルダの、"TalkEditorUtil/dropfiles/TalkEditorUtil.exa"をすり替えてください。  
 
 # 現在の対応トークソフト
+* A.I.VOICE
 * VOICEROID2(64bit版)
 * VOICEROID2(32bit版)
 * GynoidTalk
@@ -211,6 +212,13 @@ https://twitter.com/suzune25254649
 ただし、このツールを利用した際に発生した いかなる損失や損害が発生についても、作者は一切の責任を負いかねます。
 
 # 更新履歴
+
+## v1.03
+- setup.batで失敗した際に、エラーメッセージを表示するようにしました。
+- config/talkers.txt にAIVoiceEditorを追加。
+- A.I.VOICEに対応しました。
+- 一部環境で、ボイスロイド系のWav出力に失敗するバグを修正しました。
+- ボイス出力に失敗した際に、ツールがフリーズしてしまう問題を修正しました。
 
 ## v1.02
 - さとうささら、すずきつづみ、タカハシが使えるように対応しました。
