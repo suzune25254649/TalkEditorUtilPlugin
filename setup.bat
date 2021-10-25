@@ -31,22 +31,36 @@ if not exist .\download\TalkEditorUtil_v1.1.2.zip (
 if exist .\download\TalkEditorUtil rmdir /s /q .\download\TalkEditorUtil
 powershell -NoProfile -ExecutionPolicy Unrestricted .\tools\unzip.ps1 download\TalkEditorUtil_v1.1.2.zip download
 
+set err=0
 
 mkdir %DIRNAME%\TalkEditorUtil > NUL 2>&1
+if %ERRORLEVEL% neq 0 (set err=1)
+
 mkdir %DIRNAME%\TalkEditorUtil\dropfiles > NUL 2>&1
+if %ERRORLEVEL% neq 0 (set err=1)
 
 xcopy /Y /Q tools\aviutl_plugin\TalkEditorUtil.auf %DIRNAME%
+if %ERRORLEVEL% neq 0 (set err=1)
+
 xcopy /Y /Q tools\aviutl_plugin\TalkEditorUtil.dll %DIRNAME%
+if %ERRORLEVEL% neq 0 (set err=1)
+
 xcopy /Y /Q tools\aviutl_plugin\TalkEditorUtil.exa %DIRNAME%\TalkEditorUtil\dropfiles
+if %ERRORLEVEL% neq 0 (set err=1)
+
 xcopy /Y /E /Q download\TalkEditorUtil\tools\macro\RemoteTalkEditor*.exe %DIRNAME%\TalkEditorUtil\
+if %ERRORLEVEL% neq 0 (set err=1)
+
 xcopy /Y /E /Q download\TalkEditorUtil\tools\macro\*.dll %DIRNAME%\TalkEditorUtil\
+if %ERRORLEVEL% neq 0 (set err=1)
 
 mkdir config > NUL 2>&1
 xcopy /Y /E /Q download\TalkEditorUtil\config\* config
+if %ERRORLEVEL% neq 0 (set err=1)
 
 echo;
 
-if %ERRORLEVEL% neq 0 (
+if %err% neq 0 (
 	echo FAILED
 	echo セットアップに失敗しました。
 	echo 下記を対応の後、もう一度お試しください。（それでもダメならPC再起動を）
