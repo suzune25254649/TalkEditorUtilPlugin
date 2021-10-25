@@ -213,6 +213,10 @@ https://twitter.com/suzune25254649
 
 # 更新履歴
 
+## v1.04
+- VFR->CFRがONで、可変フレームレート動画を読み込んだプロジェクトにて、音声ファイルの長さがおかしくなる問題を修正
+- setup.batで失敗した際に、エラーメッセージが正しくでなかった問題を修正。
+
 ## v1.03
 - setup.batで失敗した際に、エラーメッセージを表示するようにしました。
 - config/talkers.txt にAIVoiceEditorを追加。
