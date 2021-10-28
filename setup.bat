@@ -25,56 +25,63 @@ if not exist .\download\TalkEditorUtil_v1.1.2.zip (
 	echo ERROR
 	echo ダウンロードに失敗しました。
 	echo 時々失敗することがあるようなので、何度かやってみてください。
+	echo;
 	pause
-	exit
+	exit /b 1
 )
 if exist .\download\TalkEditorUtil rmdir /s /q .\download\TalkEditorUtil
 powershell -NoProfile -ExecutionPolicy Unrestricted .\tools\unzip.ps1 download\TalkEditorUtil_v1.1.2.zip download
 
+if exist "%DIRNAME%exedit.auf" (
+	echo "%DIRNAME%"にインストールします。
+) else if exist "%DIRNAME%plugins\exedit.auf" (
+	set DIRNAME=%DIRNAME%plugins\
+	echo "!DIRNAME!"にインストールします。
+) else (
+	echo 拡張編集プラグインである exedit.auf が見当たりません。
+	echo 拡張編集0.92を導入してください（0.93は非対応です）
+	echo;
+	pause
+	exit /b 1
+)
+
+mkdir "%DIRNAME%\TalkEditorUtil" > NUL 2>&1
+mkdir "%DIRNAME%\TalkEditorUtil\dropfiles" > NUL 2>&1
+mkdir "config" > NUL 2>&1
+
 set err=0
 
-mkdir %DIRNAME%\TalkEditorUtil > NUL 2>&1
+xcopy /Y /Q tools\aviutl_plugin\TalkEditorUtil.auf "%DIRNAME%"
 if %ERRORLEVEL% neq 0 (set err=1)
 
-mkdir %DIRNAME%\TalkEditorUtil\dropfiles > NUL 2>&1
-if %ERRORLEVEL% neq 0 (set err=1)
+xcopy /Y /Q tools\aviutl_plugin\TalkEditorUtil.dll "%DIRNAME%"
+if %ERRORLEVEL% neq 0 (set err=2)
 
-xcopy /Y /Q tools\aviutl_plugin\TalkEditorUtil.auf %DIRNAME%
-if %ERRORLEVEL% neq 0 (set err=1)
+xcopy /Y /Q tools\aviutl_plugin\TalkEditorUtil.exa "%DIRNAME%\TalkEditorUtil\dropfiles"
+if %ERRORLEVEL% neq 0 (set err=3)
 
-xcopy /Y /Q tools\aviutl_plugin\TalkEditorUtil.dll %DIRNAME%
-if %ERRORLEVEL% neq 0 (set err=1)
+xcopy /Y /E /Q download\TalkEditorUtil\tools\macro\RemoteTalkEditor*.exe "%DIRNAME%\TalkEditorUtil\"
+if %ERRORLEVEL% neq 0 (set err=4)
 
-xcopy /Y /Q tools\aviutl_plugin\TalkEditorUtil.exa %DIRNAME%\TalkEditorUtil\dropfiles
-if %ERRORLEVEL% neq 0 (set err=1)
+xcopy /Y /E /Q download\TalkEditorUtil\tools\macro\*.dll "%DIRNAME%\TalkEditorUtil\"
+if %ERRORLEVEL% neq 0 (set err=5)
 
-xcopy /Y /E /Q download\TalkEditorUtil\tools\macro\RemoteTalkEditor*.exe %DIRNAME%\TalkEditorUtil\
-if %ERRORLEVEL% neq 0 (set err=1)
-
-xcopy /Y /E /Q download\TalkEditorUtil\tools\macro\*.dll %DIRNAME%\TalkEditorUtil\
-if %ERRORLEVEL% neq 0 (set err=1)
-
-mkdir config > NUL 2>&1
-xcopy /Y /E /Q download\TalkEditorUtil\config\* config
-if %ERRORLEVEL% neq 0 (set err=1)
-
-echo;
+xcopy /Y /E /Q download\TalkEditorUtil\config\* "config"
+if %ERRORLEVEL% neq 0 (set err=6)
 
 if %err% neq 0 (
 	echo FAILED
 	echo セットアップに失敗しました。
-	echo 下記を対応の後、もう一度お試しください。（それでもダメならPC再起動を）
+	echo 下記を対応の後、もう一度お試しください（それでもダメならPC再起動を）
 	echo ・aviutlを全て終了してください。
 	echo ・使っていたVoiceoid2、A.I.VOICE、ガイノイドのエディタを全て閉じてください
 	echo ・RemoteTalkEditor64を終了してください（タスクトレイに残っていませんか？）
 	echo;
 	pause
-	exit
-	
+	exit /b 1
 )
 
 echo SUCCEEDED
 echo セットアップが正常に完了しました！
 echo;
 pause
-exit
