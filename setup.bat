@@ -18,10 +18,10 @@ if /i aviutl.exe neq %EXENAME% (
 
 mkdir download > NUL 2>&1
 echo TalkEditorUtilのダウンロードを開始
-if not exist .\download\TalkEditorUtil_v1.1.2.zip @bitsadmin /transfer TalkEditorUtilのダウンロード /PRIORITY FOREGROUND https://github.com/suzune25254649/TalkEditorUtil/releases/download/v1.1.2/TalkEditorUtil_v1.1.2.zip %~dp0\download\TalkEditorUtil_v1.1.2.zip
-if not exist .\download\TalkEditorUtil_v1.1.2.zip @bitsadmin /transfer TalkEditorUtilのダウンロード /PRIORITY FOREGROUND https://github.com/suzune25254649/TalkEditorUtil/releases/download/v1.1.2/TalkEditorUtil_v1.1.2.zip %~dp0\download\TalkEditorUtil_v1.1.2.zip
+if not exist .\download\TalkEditorUtil_v1.1.3.zip @bitsadmin /transfer TalkEditorUtilのダウンロード /PRIORITY FOREGROUND https://github.com/suzune25254649/TalkEditorUtil/releases/download/v1.1.3/TalkEditorUtil_v1.1.3.zip %~dp0\download\TalkEditorUtil_v1.1.3.zip
+if not exist .\download\TalkEditorUtil_v1.1.3.zip @bitsadmin /transfer TalkEditorUtilのダウンロード /PRIORITY FOREGROUND https://github.com/suzune25254649/TalkEditorUtil/releases/download/v1.1.3/TalkEditorUtil_v1.1.3.zip %~dp0\download\TalkEditorUtil_v1.1.3.zip
 
-if not exist .\download\TalkEditorUtil_v1.1.2.zip (
+if not exist .\download\TalkEditorUtil_v1.1.3.zip (
 	echo ERROR
 	echo ダウンロードに失敗しました。
 	echo 時々失敗することがあるようなので、何度かやってみてください。
@@ -30,7 +30,7 @@ if not exist .\download\TalkEditorUtil_v1.1.2.zip (
 	exit /b 1
 )
 if exist .\download\TalkEditorUtil rmdir /s /q .\download\TalkEditorUtil
-powershell -NoProfile -ExecutionPolicy Unrestricted .\tools\unzip.ps1 download\TalkEditorUtil_v1.1.2.zip download
+powershell -NoProfile -ExecutionPolicy Unrestricted .\tools\unzip.ps1 download\TalkEditorUtil_v1.1.3.zip download
 
 if exist "%DIRNAME%exedit.auf" (
 	echo "%DIRNAME%"にインストールします。
@@ -57,7 +57,7 @@ if %ERRORLEVEL% neq 0 (set err=1)
 xcopy /Y /Q tools\aviutl_plugin\TalkEditorUtil.dll "%DIRNAME%"
 if %ERRORLEVEL% neq 0 (set err=2)
 
-xcopy /Y /Q tools\aviutl_plugin\TalkEditorUtil.exa "%DIRNAME%\TalkEditorUtil\dropfiles"
+xcopy /Y /Q tools\aviutl_plugin\*.exa "%DIRNAME%\TalkEditorUtil\dropfiles"
 if %ERRORLEVEL% neq 0 (set err=3)
 
 xcopy /Y /E /Q download\TalkEditorUtil\tools\macro\RemoteTalkEditor*.exe "%DIRNAME%\TalkEditorUtil\"
