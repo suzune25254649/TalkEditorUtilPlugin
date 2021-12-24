@@ -1,0 +1,38 @@
+#
+#	TalkEditorUtilPluginのキーコンフィグを設定するファイルです。
+#	このファイルが無い場合は、デフォルトで設定されているキーが設定されます。
+#
+#	キー設定で使う名前の一覧は、こちらのURLにあります。
+#	https://docs.microsoft.com/ja-jp/windows/win32/inputdev/virtual-key-codes?redirectedfrom=MSDN
+#	補足
+#	Aキーや数字キーについて記載がありませんが、AキーならVK_A、0キーならVK_0となります。
+#
+#	キーを+でつなげることで、両方を押した際に反応するようになります。
+#	例：VK_SHIFT+VK_F10
+#
+
+# マウスカーソルの位置に、オブジェクトを配置する。
+PUT_OBJECT = VK_F3
+
+# 現在の編集フレーム、かつマウスカーソルがあっているレイヤーに、オブジェクトを配置する。
+PUT_OBJECT_AT_CURRENT_TIME = VK_F4
+
+# トークソフトでしゃべらせる。
+PLAY_VOICE = VK_F5
+
+# しゃべっているのを止める。
+STOP_VOICE = VK_F6
+
+# セリフをWav出力し、音声オブジェクトなどをタイムラインに自動配置する。
+PUT_VOICE = VK_F7
+
+# Wavを新たに出力せずに配置する。
+RELOCATE_VOICE = VK_F8
+
+# 編集対象を、1つ次の、多目的スライダーを持つオブジェクトに移動させる。
+MOVE_NEXT = VK_F10
+
+編集対象を、1つ前の、多目的スライダーを持つオブジェクトに移動させる。
+MOVE_PREV = VK_SHIFT+VK_F10
+
+
