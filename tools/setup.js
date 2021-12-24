@@ -281,7 +281,7 @@ function cleanup(filepaths, from_dirname, temp_dirname)
 		}
 		if (!deleteFile(from_dirname + "/" + filepaths[i]))
 		{
-			println("deleteFile:" + i);
+			println("íœ‚Å‚«‚È‚¢ƒtƒ@ƒCƒ‹‚ª‚ ‚è‚Ü‚· : \"" + filepaths[i] + "\"");
 			flg = true;
 			break;
 		}
