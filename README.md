@@ -235,7 +235,7 @@ https://twitter.com/suzune25254649
 - 起動時に自動的にバージョンアップチェックを行うようになりました。
 - 以下は連携しているTalkEditorUtilのVerUPによる更新です
     - VOICEVOXに対応。
-    - CoeFont.STUDIOに対応。
+    - CoeFont.CLOUDに対応。
     - 起動時に自動的にバージョンアップチェックを行うようになりました。
 
 ## v1.06
