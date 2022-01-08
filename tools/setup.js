@@ -1,4 +1,4 @@
-var version = "1.1.4";
+var version = "1.1.5";
 var filenameTalkEditorUtilZip = "v" + version + ".zip";
 var dirnameTalkEditorUtil = "TalkEditorUtil-" + version
 
@@ -48,7 +48,9 @@ var deletefilepaths = [
 	"TalkEditorUtil.auf",
 	"TalkEditorUtil.dll",
 	"TalkEditorUtil.exa",
+	"script/TalkEditorUtil/@TalkEditorUtil.obj",
 	"TalkEditorUtil/TalkEditorUtilPlugin.exa",
+	"TalkEditorUtil/仮想延長(多目的スライダー).exa",
 	"TalkEditorUtil/dropfiles/TalkEditorUtilPlugin.exa",
 	"TalkEditorUtil/dropfiles/字幕準備.exa",
 	"TalkEditorUtil/dropfiles/統合.exa",

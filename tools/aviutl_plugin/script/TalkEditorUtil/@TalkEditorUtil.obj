@@ -1,0 +1,10 @@
+@仮想延長(多目的スライダー)
+--track0:,0,10000,0,1
+local mp = require("TalkEditorUtil").p()
+for i, v in pairs(mp) do
+  require("PSDToolKit").valueholder:set(
+    v.layer,
+    {v.track0, v.track1, v.track2, v.track3},
+    v.obj
+  )
+end
