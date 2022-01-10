@@ -90,12 +90,18 @@ if (!FS.FileExists("download/" + filenameTalkEditorUtilZip))
 {
 	if (0 != download("https://github.com/suzune25254649/TalkEditorUtil/archive/refs/tags/" + filenameTalkEditorUtilZip, "download/" + filenameTalkEditorUtilZip))
 	{
-		println('Error: "' + filenameTalkEditorUtilZip + '"のダウンロードに失敗しました。');
-		if (FS.FileExists("download/" + filenameTalkEditorUtilZip))
+		if (!FS.FileExists("download/" + filenameTalkEditorUtilZip))
 		{
-			deleteFile("download/" + filenameTalkEditorUtilZip);
+			if (0 != download("https://github.com/suzune25254649/TalkEditorUtil/archive/refs/tags/" + filenameTalkEditorUtilZip, "download/" + filenameTalkEditorUtilZip))
+			{
+				println('Error: "' + filenameTalkEditorUtilZip + '"のダウンロードに失敗しました。');
+				if (FS.FileExists("download/" + filenameTalkEditorUtilZip))
+				{
+					deleteFile("download/" + filenameTalkEditorUtilZip);
+				}
+				WScript.Quit(1);
+			}
 		}
-		WScript.Quit(1);
 	}
 }
 
