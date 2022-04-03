@@ -1,4 +1,4 @@
-var version = "1.1.5";
+var version = "1.1.6";
 var filenameTalkEditorUtilZip = "v" + version + ".zip";
 var dirnameTalkEditorUtil = "TalkEditorUtil-" + version
 
@@ -51,9 +51,12 @@ var deletefilepaths = [
 	"script/TalkEditorUtil/@TalkEditorUtil.obj",
 	"TalkEditorUtil/TalkEditorUtilPlugin.exa",
 	"TalkEditorUtil/仮想延長(多目的スライダー).exa",
+	"TalkEditorUtil/VirtualExtension_mslider.exa",
 	"TalkEditorUtil/dropfiles/TalkEditorUtilPlugin.exa",
 	"TalkEditorUtil/dropfiles/字幕準備.exa",
+	"TalkEditorUtil/dropfiles/SetupJimaku.exa",
 	"TalkEditorUtil/dropfiles/統合.exa",
+	"TalkEditorUtil/dropfiles/Integrated.exa",
 	"TalkEditorUtil/RemoteTalkEditor32.exe",
 	"TalkEditorUtil/RemoteTalkEditor64.exe",
 	"TalkEditorUtil/Codeer.Friendly.dll",
@@ -119,11 +122,15 @@ try
 
 	FS.CopyFolder("download/" + dirnameTalkEditorUtil + "/config", "./");
 	FS.CopyFile("tools/config/*", "./config");
+
+	FS.MoveFile(dirnameInstall + "\\TalkEditorUtil\\VirtualExtension_mslider.exa", dirnameInstall + "\\TalkEditorUtil\\仮想延長(多目的スライダー).exa");
+	FS.MoveFile(dirnameInstall + "\\TalkEditorUtil\\dropfiles\\SetupJimaku.exa", dirnameInstall + "\\TalkEditorUtil\\dropfiles\\字幕準備.exa");
+	FS.MoveFile(dirnameInstall + "\\TalkEditorUtil\\dropfiles\\Integrated.exa", dirnameInstall + "\\TalkEditorUtil\\dropfiles\\統合.exa");
 	WScript.Quit(0);
 }
 catch (error)
 {
-	println("Error: セットアップに失敗しました。");
+	println("Error: セットアップに失敗しました。" + error.message);
 	WScript.Quit(1);
 }
 
@@ -139,7 +146,7 @@ function println(text)
 
 function download(url, filenameSave)
 {
-	var command = "bitsadmin /transfer TalkEditorUtilのダウンロード /PRIORITY FOREGROUND " + url + " " + FS.GetAbsolutePathName(filenameSave);
+	var command = "bitsadmin /transfer TalkEditorUtilのダウンロード /PRIORITY FOREGROUND " + url + " \"" + FS.GetAbsolutePathName(filenameSave) + "\"";
 	return SH.Run(command, 10, true);
 }
 
