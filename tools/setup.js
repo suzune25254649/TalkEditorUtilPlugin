@@ -1,4 +1,4 @@
-var version = "1.1.6";
+var version = "1.1.7";
 var filenameTalkEditorUtilZip = "v" + version + ".zip";
 var dirnameTalkEditorUtil = "TalkEditorUtil-" + version
 
@@ -59,6 +59,8 @@ var deletefilepaths = [
 	"TalkEditorUtil/dropfiles/Integrated.exa",
 	"TalkEditorUtil/RemoteTalkEditor32.exe",
 	"TalkEditorUtil/RemoteTalkEditor64.exe",
+	"TalkEditorUtil/RemoteTalkEditor32.dll",
+	"TalkEditorUtil/RemoteTalkEditor64.dll",
 	"TalkEditorUtil/Codeer.Friendly.dll",
 	"TalkEditorUtil/Codeer.Friendly.Dynamic.dll",
 	"TalkEditorUtil/Codeer.Friendly.Windows.dll",

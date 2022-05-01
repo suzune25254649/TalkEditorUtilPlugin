@@ -231,6 +231,7 @@ aviutlフォルダの、"TalkEditorUtil/dropfiles/字幕準備.exa"、"TalkEdito
 * おそらく他のVOICEROID＋ EX系も動くはず
 * VOICEVOX
 * CoeFont.CLOUD
+* COEIROINK on VOICEVOX
 
 # 既知のバグ
 * CeVIOでWav出力する際、設定されているポーズ長が反映されない。結果、「、」も「。」も同じ長さの休符となる。  
@@ -246,6 +247,12 @@ https://twitter.com/suzune25254649
 ただし、このツールを利用した際に発生した いかなる損失や損害が発生についても、作者は一切の責任を負いかねます。
 
 # 更新履歴
+
+## v1.12
+- アップデート告知ダイアログで、ダウンロードページをブラウザで開くことができるようになりました。
+- 以下は連携しているTalkEditorUtilのVerUPによる更新です
+    - COEIROINK on VOICEVOX に対応。
+    - A.I.VOICE ver1.3.0.1に対応。（1.3.0.0やそれ以前でも動きます）
 
 ## v1.11
 - 音声オブジェクト設置時に字幕オブジェクトが延長される場合に、重なるオブジェクトが既に存在する場合におかしな表示になってしまうバグを修正。
