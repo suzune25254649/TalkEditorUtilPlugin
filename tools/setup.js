@@ -59,8 +59,8 @@ var deletefilepaths = [
 	"TalkEditorUtil/dropfiles/Integrated.exa",
 	"TalkEditorUtil/RemoteTalkEditor32.exe",
 	"TalkEditorUtil/RemoteTalkEditor64.exe",
-	"TalkEditorUtil/RemoteTalkEditor32.dll",
-	"TalkEditorUtil/RemoteTalkEditor64.dll",
+	"TalkEditorUtil/RemoteVoiceroid32.dll",
+	"TalkEditorUtil/RemoteVoiceroid64.dll",
 	"TalkEditorUtil/Codeer.Friendly.dll",
 	"TalkEditorUtil/Codeer.Friendly.Dynamic.dll",
 	"TalkEditorUtil/Codeer.Friendly.Windows.dll",
@@ -114,6 +114,75 @@ deleteFolder("download/" + dirnameTalkEditorUtil);
 var command = "powershell -NoProfile -ExecutionPolicy Unrestricted .\\tools\\unzip.ps1 download\\" + filenameTalkEditorUtilZip + " download";
 SH.Run(command, 10, true);
 
+//	nugetのダウンロードと、解凍
+var filenameDownload = "nuget.exe";
+if (!FS.FileExists("download/" + filenameDownload))
+{
+	if (0 != download("https://dist.nuget.org/win-x86-commandline/latest/" + filenameDownload, "download/" + filenameDownload))
+	{
+		println('Error: "' + filenameDownload + '"のダウンロードに失敗しました。');
+		WScript.Quit(1);
+	}
+}
+
+var nugetFilename;
+var nugetVersion;
+
+nugetFilename = "Codeer.Friendly";
+nugetVersion = "2.6.1";
+if (0 != SH.Run("download\\nuget.exe install " + nugetFilename + " -version " + nugetVersion + " -OutputDirectory download", 10, true))
+{
+	println('Error: "' + nugetFilename + "." + nugetVersion + '"のダウンロードに失敗しました。');
+	deleteFolder("download/" + nugetFilename + "." + nugetVersion);
+	WScript.Quit(1);
+}
+
+nugetFilename = "Codeer.Friendly.Windows";
+nugetVersion = "2.15.0";
+if (0 != SH.Run("download\\nuget.exe install " + nugetFilename + " -version " + nugetVersion + " -OutputDirectory download", 10, true))
+{
+	println('Error: "' + nugetFilename + "." + nugetVersion + '"のダウンロードに失敗しました。');
+	deleteFolder("download/" + nugetFilename + "." + nugetVersion);
+	WScript.Quit(1);
+}
+
+nugetFilename = "Codeer.Friendly.Windows.Grasp";
+nugetVersion = "2.14.0";
+if (0 != SH.Run("download\\nuget.exe install " + nugetFilename + " -version " + nugetVersion + " -OutputDirectory download", 10, true))
+{
+	println('Error: "' + nugetFilename + "." + nugetVersion + '"のダウンロードに失敗しました。');
+	deleteFolder("download/" + nugetFilename + "." + nugetVersion);
+	WScript.Quit(1);
+}
+
+nugetFilename = "Codeer.Friendly.Windows.NativeStandardControls";
+nugetVersion = "2.16.6";
+if (0 != SH.Run("download\\nuget.exe install " + nugetFilename + " -version " + nugetVersion + " -OutputDirectory download", 10, true))
+{
+	println('Error: "' + nugetFilename + "." + nugetVersion + '"のダウンロードに失敗しました。');
+	deleteFolder("download/" + nugetFilename + "." + nugetVersion);
+	WScript.Quit(1);
+}
+
+nugetFilename = "Codeer.TestAssistant.GeneratorToolKit";
+nugetVersion = "3.11.0";
+if (0 != SH.Run("download\\nuget.exe install " + nugetFilename + " -version " + nugetVersion + " -OutputDirectory download", 10, true))
+{
+	println('Error: "' + nugetFilename + "." + nugetVersion + '"のダウンロードに失敗しました。');
+	deleteFolder("download/" + nugetFilename + "." + nugetVersion);
+	WScript.Quit(1);
+}
+
+nugetFilename = "RM.Friendly.WPFStandardControls";
+nugetVersion = "1.51.1";
+if (0 != SH.Run("download\\nuget.exe install " + nugetFilename + " -version " + nugetVersion + " -OutputDirectory download", 10, true))
+{
+	println('Error: "' + nugetFilename + "." + nugetVersion + '"のダウンロードに失敗しました。');
+	deleteFolder("download/" + nugetFilename + "." + nugetVersion);
+	WScript.Quit(1);
+}
+
+
 //	インストールを行う
 try
 {
@@ -124,6 +193,21 @@ try
 
 	FS.CopyFolder("download/" + dirnameTalkEditorUtil + "/config", "./");
 	FS.CopyFile("tools/config/*", "./config");
+
+	FS.CopyFile("download/Codeer.Friendly.2.6.1/lib/net40/Codeer.Friendly.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/Codeer.Friendly.2.6.1/lib/net40/Codeer.Friendly.Dynamic.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/Codeer.Friendly.Windows.2.15.0/lib/net20/Codeer.Friendly.Windows.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/Codeer.Friendly.Windows.Grasp.2.14.0/lib/net35/Codeer.Friendly.Windows.Grasp.2.0.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/Codeer.Friendly.Windows.Grasp.2.14.0/lib/net35/Codeer.Friendly.Windows.Grasp.3.5.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/Codeer.Friendly.Windows.NativeStandardControls.2.16.6/lib/net40/Codeer.Friendly.Windows.NativeStandardControls.4.0.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/Codeer.Friendly.Windows.NativeStandardControls.2.16.6/lib/net40/Codeer.Friendly.Windows.NativeStandardControls.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/Codeer.Friendly.Windows.NativeStandardControls.2.16.6/lib/net40/Codeer.Friendly.Windows.NativeStandardControls.Generator.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/Codeer.TestAssistant.GeneratorToolKit.3.11.0/lib/net20/Codeer.TestAssistant.GeneratorToolKit.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/RM.Friendly.WPFStandardControls.1.51.1/lib/net40/RM.Friendly.WPFStandardControls.3.0.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/RM.Friendly.WPFStandardControls.1.51.1/lib/net40/RM.Friendly.WPFStandardControls.3.0.Generator.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/RM.Friendly.WPFStandardControls.1.51.1/lib/net40/RM.Friendly.WPFStandardControls.3.5.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/RM.Friendly.WPFStandardControls.1.51.1/lib/net40/RM.Friendly.WPFStandardControls.4.0.dll", dirnameInstall + "/TalkEditorUtil/");
+	FS.CopyFile("download/RM.Friendly.WPFStandardControls.1.51.1/lib/net40/RM.Friendly.WPFStandardControls.4.0.Generator.dll", dirnameInstall + "/TalkEditorUtil/");
 
 	FS.MoveFile(dirnameInstall + "\\TalkEditorUtil\\VirtualExtension_mslider.exa", dirnameInstall + "\\TalkEditorUtil\\仮想延長(多目的スライダー).exa");
 	FS.MoveFile(dirnameInstall + "\\TalkEditorUtil\\dropfiles\\SetupJimaku.exa", dirnameInstall + "\\TalkEditorUtil\\dropfiles\\字幕準備.exa");
