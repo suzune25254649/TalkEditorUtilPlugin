@@ -232,6 +232,8 @@ aviutlフォルダの、"TalkEditorUtil/dropfiles/字幕準備.exa"、"TalkEdito
 * VOICEVOX
 * CoeFont.CLOUD
 * COEIROINK on VOICEVOX
+* 棒読みちゃん
+* TALQu
 
 # 既知のバグ
 * CeVIOでWav出力する際、設定されているポーズ長が反映されない。結果、「、」も「。」も同じ長さの休符となる。  
@@ -247,6 +249,11 @@ https://twitter.com/suzune25254649
 ただし、このツールを利用した際に発生した いかなる損失や損害が発生についても、作者は一切の責任を負いかねます。
 
 # 更新履歴
+
+## v1.13
+- 以下は連携しているTalkEditorUtilのVerUPによる更新です
+    - 棒読みちゃんに対応
+    - TALQuに対応
 
 ## v1.12
 - アップデート告知ダイアログで、ダウンロードページをブラウザで開くことができるようになりました。

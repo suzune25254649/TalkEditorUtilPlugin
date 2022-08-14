@@ -1,4 +1,4 @@
-var version = "1.1.7";
+var version = "1.1.8";
 var filenameTalkEditorUtilZip = "v" + version + ".zip";
 var dirnameTalkEditorUtil = "TalkEditorUtil-" + version
 
